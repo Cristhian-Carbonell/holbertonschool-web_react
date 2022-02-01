@@ -7,28 +7,31 @@ export interface Teacher {
     [propName: string]: any;
 }
 
-export interface Directors extends Teacher {
+interface Directors extends Teacher {
     numberOfReports: number;
 }
 
-export interface printTeacher {
+interface printTeacherFunction {
     (firstName: string, lastName: string): string;
 }
-let print: printTeacher;
-print = function (firstName: string, lastName: string): string {
+export let printTeacher: printTeacherFunction;
+printTeacher = function (firstName: string, lastName: string): string {
     return `${firstName[0]}. ${lastName}`
 }
 
-export interface StudentConstructor {
+interface StudentConstructor {
     new(firstName: string, lastName: string): StudentClassInterface;
 }
 
-export interface StudentClassInterface {
+interface StudentClassInterface {
+    firstName: string;
+    lastName: string;
     displayName(): string;
     workOnHomework(): string;
 }
 
-export class StudentClass {
+export const StudentClass: StudentConstructor =
+class StudentClass implements StudentClassInterface {
     firstName: string;
     lastName: string;
 
