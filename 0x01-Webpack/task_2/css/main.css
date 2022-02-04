@@ -8,6 +8,6 @@
 #logo {
     width: 200%;
     height: 200%;
-    background-image: url(../assets/holberton-logo.jpg);
-    background-repeat: no-repeat;
+    background: url(../assets/holberton-logo.jpg);
+    background-size: 200px 200px;
 }
