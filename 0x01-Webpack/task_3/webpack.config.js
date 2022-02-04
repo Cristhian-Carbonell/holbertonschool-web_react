@@ -13,6 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
   devServer: {
+    contentBase: "./public",
     open: true,
     port: 8564,
   },
