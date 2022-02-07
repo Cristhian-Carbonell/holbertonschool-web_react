@@ -1,18 +1,21 @@
+import logo from './logo.jpg';
+import './App.css';
+
 export default function App() {
     return (
         <div>
-            <div className="App-header">
-                <img src="https://github.com/Cristhian-Carbonell/holbertonschool-web_react/blob/main/0x02-react_intro/task_0/dashboard/src/logo.jpg?raw=true" alt="logo"></img>
+            <header className="App-header">
+                <img src={logo} alt="logo"></img>
                 <h1>School dashboard</h1>
-            </div>
+            </header>
             <div className="linea"></div>
-            <div className="App-body">
+            <body className="App-body">
                 <p>Login to access the full dashboard</p>
-            </div>
+            </body>
             <div className="linea"></div>
-            <div className="App-footer">
+            <footer className="App-footer">
                 <p>Copyright 2020 - holberton School</p>
-            </div>
+            </footer>
         </div>
     );
 }
