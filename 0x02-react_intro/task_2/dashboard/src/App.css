@@ -22,26 +22,8 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.from {
-  display: flex;
-  flex-direction: column;
-}
-
-.from input {
-  width: 200px;
-}
-
-.from button {
-  width: 50px;
-}
-
 .App-footer {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
-}
-
-.linea {
-  background-color: red;
-  height: 5px;
 }
