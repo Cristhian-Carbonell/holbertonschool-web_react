@@ -13,9 +13,9 @@ export default function App() {
                 <h1>School dashboard</h1>
             </header>
             <div className="linea"></div>
-            <body className="App-body">
+            <div className="App-body">
                 <p>Login to access the full dashboard</p>
-            </body>
+            </div>
             <div className="linea"></div>
             <footer className="App-footer">
                 <p>Copyright {year} - {getFooter}</p>
