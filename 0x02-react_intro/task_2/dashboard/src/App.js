@@ -13,18 +13,14 @@ export default function App() {
                 <h1>School dashboard</h1>
             </header>
             <div className="linea"></div>
-            <body className="App-body">
+            <main className="App-body">
                 <p>Login to access the full dashboard</p>
-                <div className="from">
-                  <label for="Email">Email: </label>
-                  <input type="email" id="Email" name="Email" require/>
-                  <br/>
-                  <label for="Password">Password: </label>
-                  <input type="password" id="Password" name="Password" require/>
-                  <br/>
-                  <button>Ok</button>
-                </div>
-            </body>
+                <label htmlFor="Email">Email: </label>
+                <input type="email" id="Email" name="Email"/>
+                <label htmlFor="Password"> Password: </label>
+                <input type="password" id="Password" name="Password"/>
+                <button>Ok</button>
+            </main>
             <div className="linea"></div>
             <footer className="App-footer">
                 <p>Copyright {year} - {getFooter}</p>
