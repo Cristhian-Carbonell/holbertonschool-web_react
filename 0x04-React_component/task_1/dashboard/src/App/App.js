@@ -25,29 +25,30 @@ const listNotifications = [
     {id: 3, type: 'urgent', html: {__html: getLatestNotification()}}
 ];
 
-/*export default function App({isLoggedIn}) {
-    const loggedIn = (!isLoggedIn) ? <Login /> : <CourseList listCourses={listCourses}/>;
-    return (
-        <React.Fragment>
-            <Notifications listNotifications={listNotifications}/>
-            <Header />
-            <div>
-                {loggedIn}
-            </div>
-            <Footer />
-        </React.Fragment>
-    );
-}*/
-
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleclick = this.handleClick.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener("keydown", this.handleClick)
+    }
+
+    handleClick(e) {
+        if(e.keyCode === 72 && e.ctrlkey) {
+            alert('Logging you out');
+            this.props.logOut();
+        }
+    }
+
     render() {
-        const loggedIn = (!this.isLoggedIn) ? <Login /> : <CourseList listCourses={listCourses}/>;
         return (
             <React.Fragment>
                 <Notifications listNotifications={listNotifications}/>
                 <Header/>
                 <div>
-                    {loggedIn}
+                    {(!this.props.isLoggedIn) ? <Login /> : <CourseList listCourses={listCourses}/>}
                 </div>
                 <Footer/>
             </React.Fragment>
@@ -57,8 +58,10 @@ export default class App extends React.Component {
 
 App.PropTypes = {
     isLoggedIn: PropTypes.bool,
+    logOut: PropTypes.func,
 }
 
 App.defaultProps = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    logOut: () => void(0),
 }

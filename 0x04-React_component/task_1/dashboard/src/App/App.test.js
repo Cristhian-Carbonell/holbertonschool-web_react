@@ -1,51 +1,47 @@
 import React from 'react';
-import App from './App';
 import { shallow } from 'enzyme';
-import Notifications from '../Notifications/Notifications';
-import Header from '../Header/Header';
-import Login from '../Login/Login';
-import Footer from '../Footer/Footer';
+import { expect } from 'chai';
+import App from './App';
 import CourseList from '../CourseList/CourseList';
+import Login from '../Login/Login';
 
-describe('App', () => {
-  it('renders without crashing', () => {
+
+describe('Test App.js', () => {
+
+  let events = {};
+
+  beforeEach(() => {
+    events = {}; // Empty our events before each test case
+    // Define the addEventListener method with a Jest mock function
+    document.addEventListener = jest.fn((event, callback) => {
+      events[event] = callback;
+    });
+  });
+
+  it('App without crashing', (done) => {
+    expect(shallow(<App />).exists());
+    done();
+  });
+
+  it('check that CourseList is not displayed when isLoggedIn is false', (done) => {
     const wrapper = shallow(<App />);
-    expect(wrapper.exists());
+    expect(wrapper.find(CourseList)).to.have.lengthOf(0);
+    done();
   });
-  it('Notifications component', () => {
-    const wrapper = shallow(<Notifications />);
-    expect(wrapper.exists());
-  });
-  it('Header component', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper.exists());
-  });
-  it('Login component', () => {
-    const wrapper = shallow(<Login />);
-    expect(wrapper.exists());
-  });
-  it('Footer component', () => {
-    const wrapper = shallow(<Footer />);
-    expect(wrapper.exists());
-  });
-});
 
-describe('App', () => {
-  it('CourseList is not displayed', () => {
-    const wrapper = shallow(<App />);
-    const courseList = wrapper.find(CourseList)
-    expect(courseList.length).toEqual(0);
+  it('check that CourseList is displayed and Login is not displayed when isLoggedIn is true', (done) => {
+    const wrapper = shallow(<App isLoggedIn={true} />);
+    expect(wrapper.find(CourseList)).to.have.lengthOf(1);
+    expect(wrapper.find(Login)).to.have.lengthOf(0);
+    done();
   });
-});
 
-const wrapper = shallow(<App isLoggedIn={true}/>);
-describe('App', () => {
-  it('CourseList is not displayed', () => {
-    const courseList = wrapper.find(Login)
-    expect(courseList.length).toEqual(1);
-  });
-  it('CourseList is not displayed', () => {
-    const courseList = wrapper.find(CourseList)
-    expect(courseList.length).toEqual(0);
+  it('verify that when the keys "control" and "h" are pressed the "logOut" function is called', (done) => {
+    const logOut = jest.fn(() => void (0));
+    shallow(<App />);
+    window.alert = logOut;
+    events.keydown({ keyCode: 72, ctrlKey: true });
+    expect(logOut).toHaveBeenCalled()
+    done();
   });
 });
