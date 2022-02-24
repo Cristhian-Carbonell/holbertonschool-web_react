@@ -42,10 +42,10 @@ const wrapper = shallow(<App isLoggedIn={true}/>);
 describe('App', () => {
   it('CourseList is not displayed', () => {
     const courseList = wrapper.find(Login)
-    expect(courseList.length).toEqual(0);
+    expect(courseList.length).toEqual(1);
   });
   it('CourseList is not displayed', () => {
     const courseList = wrapper.find(CourseList)
-    expect(courseList.length).toEqual(1);
+    expect(courseList.length).toEqual(0);
   });
 });

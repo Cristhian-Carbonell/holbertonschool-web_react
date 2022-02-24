@@ -41,7 +41,7 @@ const listNotifications = [
 
 export default class App extends React.Component {
     render() {
-        const loggedIn = (!isLoggedIn) ? <Login /> : <CourseList listCourses={listCourses}/>;
+        const loggedIn = (!this.isLoggedIn) ? <Login /> : <CourseList listCourses={listCourses}/>;
         return (
             <React.Fragment>
                 <Notifications listNotifications={listNotifications}/>

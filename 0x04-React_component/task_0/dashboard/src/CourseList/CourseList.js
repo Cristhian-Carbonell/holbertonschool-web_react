@@ -40,6 +40,6 @@ CourseList.PropTypes = {
     ),
 };
 
-CourseLis.defaultProps = {
+CourseList.defaultProps = {
     listCourses: []
 };
