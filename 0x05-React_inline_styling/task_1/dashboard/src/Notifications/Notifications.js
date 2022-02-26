@@ -4,6 +4,7 @@ import { getLatestNotification } from '../utils/utils';
 import close from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from "aphrodite";
 
 const styleBottom = { 
         position: 'relative',
