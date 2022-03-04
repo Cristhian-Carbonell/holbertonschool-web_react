@@ -33,7 +33,7 @@ export default class App extends React.Component {
         this.handleclick = this.handleClick.bind(this);
         this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
         this.handleHideDrawer = this.handleHideDrawer.bind(this);
-        this.state = {displayDrawe: false};
+        this.state = {displayDrawer: false};
     }
 
     componentDidMount() {
