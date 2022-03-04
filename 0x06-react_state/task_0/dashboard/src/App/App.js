@@ -56,11 +56,11 @@ export default class App extends React.Component {
       }
 
     handleDisplayDrawer() {
-        this.setState({displayDrawe: true});
+        this.setState({displayDrawer: true});
     }
     
     handleHideDrawer() {
-        this.setState({displayDrawe: false});
+        this.setState({displayDrawer: false});
     }
 
     render() {
