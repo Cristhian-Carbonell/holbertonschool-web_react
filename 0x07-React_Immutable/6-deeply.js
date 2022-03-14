@@ -26,4 +26,4 @@ const page2 = {
   },
 };
 
-mergeDeeplyElements(page1, page2).toJS();
+console.log(mergeDeeplyElements(page1, page2).toJS());
