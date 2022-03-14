@@ -1,17 +1,14 @@
 import { Seq } from 'immutable';
 
 export default function printBestStudents(object) {
-  let firstName;
-  let lastName;
+  let obj;
 
   Seq(object)
-  .filter(value => value.score < 70)
-  .map((value) => firstName = value.firstName.toUpperCase()).toObject();
+    .filter(value => value.score < 70)
+    .map((value) => obj = value).toObject();
 
-  Seq(object)
-  .filter(value => value.score < 70)
-  .map((value) => lastName = value.lastName.toUpperCase()).toObject();
-
+  const firstName = obj['firstName'].toUpperCase();
+  const lastName = obj['lastName'].toUpperCase();
   console.log(firstName, lastName);
 }
 
@@ -20,7 +17,7 @@ const grades = {
     score: 69,
     firstName: 'guillaume',
     lastName: 'salva',
-  }
+  },
 };
 
 printBestStudents(grades);
