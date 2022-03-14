@@ -1,8 +1,8 @@
 import { fromJS } from 'immutable';
 
 export default function getImmutableObject(object) {
-    const myList = fromJS(object)
-    console.log(myList)
+    const myList = fromJS(object);
+    return (myList);
 }
 
 getImmutableObject({
