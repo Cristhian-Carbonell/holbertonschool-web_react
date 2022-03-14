@@ -1,11 +1,11 @@
-import { List } from 'immutable';
+import { List, Map } from 'immutable';
 
-export default function concatElements(page1, page2) {
-    return List(page1, page2);
+export function concatElements(page1, page2) {
+  return List(page1.concat(page2));
 }
 
-export default function mergeElements(page1, page2) {
-
+export function mergeElements(page1, page2) {
+  return Map({...page1, page2});
 }
 
 const element = concatElements(
@@ -13,4 +13,10 @@ const element = concatElements(
   ['Alex', 'Carbonell'],
 )
 
-console.log(element)
+const element1 = mergeElements(
+  {'Apple': 'Banana'},
+  {'Alex': 'Carbonell'},
+)
+
+console.log(element);
+console.log(element1);
