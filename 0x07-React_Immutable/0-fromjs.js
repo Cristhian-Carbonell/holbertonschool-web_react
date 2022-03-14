@@ -10,3 +10,5 @@ const myList = getImmutableObject({
   wall: false,
   thing: -914767132,
 });
+
+console.log(myList);
