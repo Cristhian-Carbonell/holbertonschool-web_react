@@ -5,9 +5,9 @@ export default function accessImmutableObject(object, array) {
     
 }
 
-console.log(accessImmutableObject({
+accessImmutableObject({
     name: {
          first: "Guillaume",
          last: "Salva",
     }
-}, ['name', 'first']));
+}, ['name', 'first']);
