@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 
-export function mergeDeeplyElements(page1, page2) {
-  return Map().mergeDeep(page1, page2)
+export default function mergeDeeplyElements(page1, page2) {
+  return Map(page1).mergeDeep(page2);
 }
 
 const page1 = {
@@ -11,19 +11,19 @@ const page1 = {
     likes: {
       1: {
         uid: 1234,
-      }
-    }
+      },
+    },
   },
 };
-  
+
 const page2 = {
   'user-1': {
     likes: {
       2: {
         uid: 134,
-      }
-    }
+      },
+    },
   },
 };
-  
-console.log(mergeDeeplyElements(page1, page2).toJS());
+
+mergeDeeplyElements(page1, page2).toJS();
