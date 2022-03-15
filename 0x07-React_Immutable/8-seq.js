@@ -31,4 +31,4 @@ const grades = {
   },
 };
 
-sprintBestStudents(grades);
+printBestStudents(grades);
