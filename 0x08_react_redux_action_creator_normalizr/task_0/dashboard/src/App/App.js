@@ -13,6 +13,7 @@ import BodySection from '../BodySection/BodySection';
 import { StyleSheet, css } from 'aphrodite';
 import AppContext from './AppContext';
 import { user, logOut } from './AppContext';
+import Notification from '../schema/notifications.js';
 
 const year = getFullYear();
 const getFooter = getFooterCopy(false);
@@ -29,7 +30,7 @@ const listNotifications = [
     {id: 3, type: 'urgent', html: {__html: getLatestNotification()}}
 ];
 
-export default class App extends React.Component {
+export  class App extends React.Component {
     constructor(props) {
         super(props);
         this.handleclick = this.handleClick.bind(this);
@@ -128,6 +129,7 @@ export default class App extends React.Component {
                         <p>Some news</p>
                     </BodySection>
                 </div>
+                <Notifications/>
                 <div className={css(styles.footer)}>
                     <Footer/>
                 </div>
